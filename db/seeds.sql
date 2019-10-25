@@ -1,0 +1,1 @@
+INSERT INTO burgers (burger) VALUES ('Big Burger'), ('Small Burger'), ('Medium Burger');
