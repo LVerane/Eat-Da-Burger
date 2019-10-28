@@ -20,7 +20,7 @@
     <ul>
       {{#each burgers}}
       {{#if devoured}}
-      {{> burger-devour devour=false}}
+      {{> burger-devour}}
       {{/if}}
       {{/each}}
     </ul>
@@ -37,9 +37,9 @@
   </div>
 
   <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1"> Devoured!<br>
-    <input type="radio" name="devoured" value="0" checked> Not Devoured
+    <label for="toGo">To go?</label><br>
+    <input type="radio" name="toGo" value="1">to Go!<br>
+    <input type="radio" name="toGo" value="0" checked> To eta here
   </div>
 
   <button type="submit">Add Burger</button>

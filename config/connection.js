@@ -14,6 +14,7 @@ if (process.env.JAWSDB_URL) {
     database: "burgers_db"
   });
 }
+// empty password and delete port for heroku
 
 // Make connection.
 connection.connect(function(err) {

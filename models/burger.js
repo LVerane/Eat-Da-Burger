@@ -2,6 +2,12 @@
 var orm = require("../config/orm.js");
 
 var burger = {
+  one: function(burgerId, cb) {
+    orm.one(burgerId, function(res) {
+      cb(res);
+    });
+  },
+
   all: function(cb) {
     orm.all("burgers", function(res) {
       cb(res);

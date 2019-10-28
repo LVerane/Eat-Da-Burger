@@ -16,15 +16,23 @@ router.get("/", function(req, res) {
   });
 });
 
+//
+router.get("/api/burgers/:id", function(req, res) {
+  var id = req.params.id;
+  burger.one(id, function(data) {
+    console.log(data);
+    res.json(data);
+  });
+});
+//
+
 router.post("/api/burgers", function(req, res) {
-  burger.create(
-    ["burger", "devoured"],
-    [req.body.burger, req.body.devoured],
-    function(result) {
-      // Send back the ID of the new quote
-      res.json({ id: result.insertId });
-    }
-  );
+  burger.create(["burger", "toGo"], [req.body.burger, req.body.toGo], function(
+    result
+  ) {
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
+  });
 });
 
 router.put("/api/burgers/:id", function(req, res) {
