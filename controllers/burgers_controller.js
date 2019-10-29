@@ -1,8 +1,5 @@
 var express = require("express");
-
 var router = express.Router();
-
-// Import the model (burger.js) to use its database functions.
 var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
@@ -11,34 +8,27 @@ router.get("/", function(req, res) {
     var hbsObject = {
       burgers: data
     };
-    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
-//
 router.get("/api/burgers/:id", function(req, res) {
   var id = req.params.id;
   burger.one(id, function(data) {
-    // console.log(data);
     res.json(data);
   });
 });
-//
 
 router.post("/api/burgers", function(req, res) {
   burger.create(["burger", "toGo"], [req.body.burger, req.body.toGo], function(
     result
   ) {
-    // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
 router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
 
   var update = {};
 
@@ -48,7 +38,7 @@ router.put("/api/burgers/:id", function(req, res) {
   if (req.body.toGo) {
     update.toGo = req.body.toGo;
   }
-  console.log(update);
+
   burger.update(update, condition, function(result) {
     if (result.changedRows === 0) {
       // If no rows were changed, then the ID must not exist, so 404
@@ -58,11 +48,9 @@ router.put("/api/burgers/:id", function(req, res) {
   });
 });
 
-//added delete stuff
 router.delete("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   burger.delete(condition, function(result) {
-    // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });

@@ -8,12 +8,12 @@ if (process.env.JAWSDB_URL) {
 } else {
   connection = mysql.createConnection({
     host: "localhost",
+    port: 3306,
     user: "root",
-    password: "",
+    password: "root",
     database: "burgers_db"
   });
 }
-// empty password and delete port for heroku
 
 // Make connection.
 connection.connect(function(err) {
