@@ -108,8 +108,10 @@ $(function() {
     });
   });
 
-  $(".fa-star").on("click", function(event) {
-    var rating = $(this).data("rating");
-    console.log(rating);
-  });
+  // $(".fa-star").on("click", function(event) {
+  //   var id = $(this).data("id");
+  //   var rating = $(this).data("rating");
+  //   console.log(rating);
+  //   console.log(id);
+  // });
 });

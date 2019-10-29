@@ -28,36 +28,3 @@ li {
   width: 45%;
   margin: auto;
 }
-
-/* .fa-star:hover:after {
-  color: red;
-  display: block;
-  position: absolute;
-} */
-.fa-star:hover:before,
-.fa-star:hover ~ :before {
-  color: orange;
-}
-
-/* .rating > span:hover:before,
-.rating > span:hover ~ span:before */
-
-/* .fa-star:hover::after {
-  color: orange;
-} */
-/* .star-box {
-  margin: auto;
-  width: 50px;
-} */
-.rating-title {
-  margin-right: 5px;
-}
-.rating {
-  display: flex;
-  flex-direction: row-reverse;
-  max-width: 150px;
-  margin: 0;
-  display: none;
-  /* text-align: left; */
-  /* align-content: flex-start; */
-}
