@@ -1,7 +1,11 @@
 <li>
 	{{burger}}
 
-	{{#if devour}}
+	{{#if devoured}}
+	<button class="order-another" data-id="{{id}}">
+		ORDER ANOTHER ONE!
+	</button>
+	{{else}}
 	<button class="devour" data-id="{{id}}">
 		DEVOUR TIME!
 	</button>
@@ -9,12 +13,15 @@
 	<button class="delete-burger" data-id="{{id}}">
 		TRASH CAN
 	</button>
-	{{else}}
-	<button class="order-another" data-id="{{id}}">
-		ORDER ANOTHER ONE!
-	</button>
 
+	<div class="rating">
+		<span data-rating="5" class="fa fa-star"></span>
+		<span data-rating="4" class="fa fa-star"></span>
+		<span data-rating="3" class="fa fa-star"></span>
+		<span data-rating="2" class="fa fa-star"></span>
+		<span data-rating="1" class="fa fa-star"></span>
+		<span class="rating-title">Rating</span>
+	</div>
 	{{/if}}
-
 
 </li>

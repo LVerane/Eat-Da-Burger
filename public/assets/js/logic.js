@@ -5,7 +5,8 @@ $(function() {
     // var newdevour = $(this).data("newdevour");
 
     var newdevourState = {
-      devoured: true
+      devoured: true,
+      toGo: false
     };
 
     // Send the PUT request.
@@ -19,6 +20,25 @@ $(function() {
     });
   });
 
+  $(".togo").on("click", function(event) {
+    var id = $(this).data("id");
+    // var newdevour = $(this).data("newdevour");
+
+    var readyState = {
+      toGo: false
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: readyState
+    }).then(function() {
+      console.log("changed devour to", readyState);
+      // Reload the page to get the updated list
+      location.reload();
+    });
+  });
+
   //
   $(".order-another").on("click", function(event) {
     var id = $(this).data("id");
@@ -27,9 +47,16 @@ $(function() {
       type: "GET"
     }).then(function(data) {
       var newBurger = {
-        burger: data[0].burger
+        burger: data[0].burger,
+        toGo: $("[name=toGo]:checked")
+          .val()
+          .trim()
       };
-      console.log(newBurger);
+
+      // newBurger.toGo = $("[name=toGo]:checked")
+      //   .val()
+      //   .trim();
+      // console.log(newBurger);
 
       $.ajax("/api/burgers", {
         type: "POST",
@@ -79,5 +106,10 @@ $(function() {
       // Reload the page to get the updated list
       location.reload();
     });
+  });
+
+  $(".fa-star").on("click", function(event) {
+    var rating = $(this).data("rating");
+    console.log(rating);
   });
 });
